@@ -74,12 +74,12 @@ open class ConnectedApp {
 	/// - Parameter loginHost: Salesforce authorization server (if sandbox org, set to "test.salesforce.com")
 	/// - Parameter userID: record ID of user; useful for supporting multi-user switching
 	/// - Parameter orgID: record ID of org; useful for supporting mutli-user switching
-	public convenience init(consumerKey: String, callbackURL: URL, loginDelegate: LoginDelegate, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID) {
-		self.init(consumerKey: consumerKey, callbackURL: callbackURL, loginDelegate: loginDelegate, loginHost: loginHost, userID: userID, orgID: orgID, authData: nil)
+    public convenience init(consumerKey: String, callbackURL: URL, loginDelegate: LoginDelegate, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, extraUrl: String) {
+        self.init(consumerKey: consumerKey, callbackURL: callbackURL, loginDelegate: loginDelegate, loginHost: loginHost, userID: userID, orgID: orgID, authData: nil, extraUrl: extraUrl)
 	}
 	
 	/// Internal initializer
-    internal init(consumerKey: String, callbackURL: URL, loginDelegate: LoginDelegate, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, authData: OAuth2Result? = nil, extraUrl: String = "") {
+    internal init(consumerKey: String, callbackURL: URL, loginDelegate: LoginDelegate, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, authData: OAuth2Result? = nil, extraUrl: String) {
 		
 		self.consumerKey = consumerKey
 		self.callbackURL = callbackURL

@@ -55,6 +55,7 @@ extension LoginDelegate {
 		
 		// Replace current root view controller with Safari view controller for login
 		let loginVC = SafariLoginViewController(url: url)
+        loginVC.hidesBottomBarWhenPushed = true
 		loginVC.replacedRootViewController = window.rootViewController
 		window.rootViewController = loginVC
 	}
@@ -88,6 +89,7 @@ extension LoginDelegate {
 				if let loginURL = try? connectedApp.loginURL(), let window = UIApplication.shared.keyWindow {
 					// Replace current root view controller with Safari view controller for login
 					let loginVC = SafariLoginViewController(url: loginURL)
+                    
 					loginVC.replacedRootViewController = window.rootViewController
 					window.rootViewController = loginVC
 				}
@@ -111,8 +113,8 @@ extension LoginDelegate where Self: UIApplicationDelegate {
 	/// - Parameter orgID: User's org ID. Used for multi-user switching
 	/// - Parameter version: version of the Salesforce API
 	/// - Returns: configured instance of Salesforce
-	public func configureSalesforce(consumerKey: String, callbackURL: URL, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, version: String = Salesforce.defaultVersion) -> Salesforce {
-		let connectedApp = ConnectedApp(consumerKey: consumerKey, callbackURL: callbackURL, loginDelegate: self, loginHost: loginHost, userID: userID, orgID: orgID)
+    public func configureSalesforce(consumerKey: String, callbackURL: URL, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, version: String = Salesforce.defaultVersion, extraUrl: String) -> Salesforce {
+        let connectedApp = ConnectedApp(consumerKey: consumerKey, callbackURL: callbackURL, loginDelegate: self, loginHost: loginHost, userID: userID, orgID: orgID, extraUrl: String)
 		return Salesforce(connectedApp: connectedApp, version: version)
 	}
 }
