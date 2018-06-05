@@ -79,7 +79,7 @@ open class ConnectedApp {
 	}
 	
 	/// Internal initializer
-    internal init(consumerKey: String, callbackURL: URL, loginDelegate: LoginDelegate, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, authData: OAuth2Result? = nil, extraUrl: String) {
+    internal init(consumerKey: String, callbackURL: URL, loginDelegate: LoginDelegate, loginHost: String = ConnectedApp.defaultLoginHost, userID: String = ConnectedApp.defaultUserID, orgID: String = ConnectedApp.defaultOrgID, authData: OAuth2Result? = nil, extraUrl: String = "") {
 		
 		self.consumerKey = consumerKey
 		self.callbackURL = callbackURL
