@@ -58,6 +58,14 @@ extension LoginDelegate {
         loginVC.hidesBottomBarWhenPushed = true
 		loginVC.replacedRootViewController = window.rootViewController
 		window.rootViewController = loginVC
+        
+        //Hacky and ugly way to hide nav bar on SFSafariViewController
+        var frame = window.rootViewController!.view.frame
+        let OffsetY: CGFloat  = 87 //Magic ! more than 64 to handle iPhoneX
+        frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y - OffsetY)
+        frame.size = CGSize(width: frame.width, height: frame.height + OffsetY)
+        window.rootViewController?.view.frame = frame
+        //==============
 	}
 	
 	/// Handles the redirect URL returned by Salesforce after OAuth2 authentication and authorization.
