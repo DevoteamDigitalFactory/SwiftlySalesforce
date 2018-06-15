@@ -61,9 +61,10 @@ extension LoginDelegate {
         
         //Hacky and ugly way to hide nav bar on SFSafariViewController
         var frame = window.rootViewController!.view.frame
-        let OffsetY: CGFloat  = 87 //Magic ! more than 64 to handle iPhoneX
+        let OffsetY: CGFloat  = 88 //Magic ! more than 64 to handle iPhoneX
+		let bottomBarHeight: CGFloat = 88 //Magic strikes again.
         frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y - OffsetY)
-        frame.size = CGSize(width: frame.width, height: frame.height + OffsetY)
+        frame.size = CGSize(width: frame.width, height: frame.height + OffsetY + bottomBarHeight)
         window.rootViewController?.view.frame = frame
         //==============
 	}
