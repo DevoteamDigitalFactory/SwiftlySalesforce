@@ -38,6 +38,15 @@ extension LoginDelegate {
 		}
 	}
 	
+	var safeAreaTop: CGFloat {
+		let iPhoneX = UIScreen.main.nativeBounds.height >= 2436
+		if iPhoneX {
+			return 24
+		} else {
+			return 0
+		}
+	}
+	
 	/// Initiates login process by replacing current root view controller with
 	/// Salesforce-hosted webform, per OAuth2 "user-agent" flow. This is the prescribed
 	/// authentication method, as the client app does not access the user credentials.
@@ -61,7 +70,7 @@ extension LoginDelegate {
         
         //Hacky and ugly way to hide nav bar on SFSafariViewController
         var frame = window.rootViewController!.view.frame
-        let OffsetY: CGFloat  = 88 //Magic ! more than 64 to handle iPhoneX
+        let OffsetY: CGFloat = 64 + safeAreaTop //Magic ! more than 64 to handle iPhoneX
 		let bottomBarHeight: CGFloat = 88 //Magic strikes again.
         frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y - OffsetY)
         frame.size = CGSize(width: frame.width, height: frame.height + OffsetY + bottomBarHeight)
