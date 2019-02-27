@@ -1,5 +1,54 @@
 # Change Log
 
+## Version 7.1.6 (Jan. 22, 2019)
+Minor release. Updated default Salesforce API version to 44.0 (Winter '19).
+
+## Version 7.1.5 (Oct. 26, 2018)
+Removed dependency on PromiseKit's Foundation extension
+
+## Version 7.1.4 (Oct. 25, 2018)
+Added Cartfile entry for PromiseKit's Foundation extensions.
+
+## Version 7.1.3 (Oct. 24, 2018)
+- Updated Cartfile.resolved; was out of date.
+- Fixed documentation [issue #96](https://github.com/mike4aday/SwiftlySalesforce/issues/96). Thanks to [@pbrondum](https://github.com/pbrondum).
+
+## Version 7.1.2 (Oct. 11, 2018)
+Support aggregate query result. Resolves issue [issue #88](https://github.com/mike4aday/SwiftlySalesforce/issues/88).
+
+## Version 7.1.1 (Oct. 11, 2018)
+Adapt to Winter '19 date format change in `identity` JSON response. See [release notes](https://releasenotes.docs.salesforce.com/en-us/winter19/release-notes/rn_security_auth_json_value_endpoints.htm). 
+Resolves issue [issue #91](https://github.com/mike4aday/SwiftlySalesforce/issues/91).
+
+## Version 7.1.0 (Oct. 10, 2018)
+Support OpenID Connect 'ID token.' Resolves issue [issue #92](https://github.com/mike4aday/SwiftlySalesforce/issues/92).
+
+## Version 7.0.4 (Oct. 5, 2018)
+Updated podspec 'source_files' attribute to avoid Xcode 10 build errors. 
+
+## Version 7.0.3 (Aug. 28, 2018)
+Updated connected app's consumer key in example app.
+
+## Version 7.0.2 (Aug. 10, 2018)
+Added SOSL search example to README, and some inline documentation.
+
+## Version 7.0.1 (Aug. 6, 2018)
+Fixed access to `Organization` properties. Was `internal`, now `public`. Thanks to [@joaoamaral](https://github.com/joaoamaral) for [pull request](https://github.com/mike4aday/SwiftlySalesforce/pull/84).
+
+## Version 7.0.0 (July 12, 2018)
+- Deferred login (set `options` in function argument to `[.dontAuthenticate]`)
+- Simplifies app configuration (no more need to set URL scheme in plist file)
+- Simplifies calling custom endpoints (call `Salesforce.dataTask` with your own `URLRequest` and `Decodable` model object)
+- Simplifies & improves user login experience with iOS 11's new [`SFAuthenticationSession`](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) (Apple has already deprecated `SFAuthenticationSession` in the upcoming iOS 12 in favor of the very similar [`ASWebAuthenticationSession`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) - Swiftly Salesforce will be updated after iOS 12 is released)
+- New functions to call Salesforce's [UI API](https://developer.salesforce.com/blogs/2018/01/introduction-salesforce-ui-api.html)
+- Supports SOSL searching
+- Enables full control over authorization URL (useful for Community or custom login flows)
+- Works with latest PromiseKit version
+- Resolves issue [issue #73](https://github.com/mike4aday/SwiftlySalesforce/issues/73)
+- Resolves issue [issue #68](https://github.com/mike4aday/SwiftlySalesforce/issues/68)
+- Resolves issue [issue #63](https://github.com/mike4aday/SwiftlySalesforce/issues/63)
+- Resolves issue [issue #32](https://github.com/mike4aday/SwiftlySalesforce/issues/32)
+
 ## Version 6.0.7 (May 21, 2018)
 Resolves [issue #69](https://github.com/mike4aday/SwiftlySalesforce/issues/69). Thanks to [@hmuronaka](https://github.com/hmuronaka) for [pull request](https://github.com/mike4aday/SwiftlySalesforce/pull/72).
 
